@@ -1,4 +1,19 @@
 @font-face {
-  font-family: '';
-  src: url();
+  font-family: 'KoPubWorld Batang';
+  src: local('KoPubWorldBatang'),
+    url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/fonts/KoPubWorld-Batang-Medium.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/fonts/KoPubWorld-Batang-Medium.woff')
+      format('woff'),
+    url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/fonts/KoPubWorld-Batang-Medium.otf')
+      format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'notoSansKR Regular';
+  src: url(NotoSansKR-Regular.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
