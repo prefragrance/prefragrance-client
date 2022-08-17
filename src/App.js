@@ -1,7 +1,12 @@
 import React from 'react';
+import GlobalStyle from './GlobalStyle';
 
 const App = () => {
-  return <div>초기설정</div>;
+  return (
+    <>
+      <GlobalStyle />
+    </>
+  );
 };
 
 export default App;

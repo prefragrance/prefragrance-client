@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'KoPubWorld Batang', sans-serif;
+    font-family: 'notoSansKR Regular', sans-serif;
   }
   a {
     text-decoration:none;
