@@ -1,19 +1,24 @@
 @font-face {
-  font-family: 'KoPubWorld Batang';
-  src: local('KoPubWorldBatang'),
-    url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/fonts/KoPubWorld-Batang-Medium.woff2')
-      format('woff2'),
-    url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/fonts/KoPubWorld-Batang-Medium.woff')
-      format('woff'),
-    url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/fonts/KoPubWorld-Batang-Medium.otf')
-      format('opentype');
-  font-weight: 400;
+  font-family: 'KoPubWorld_light';
+  src: url('./KoPubWorld\ Batang\ Light.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'KoPubWorld_medium';
+  src: url('./KoPubWorld\ Batang\ Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'KoPubWorld_bold';
+  src: url('./KoPubWorld\ Batang\ Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 @font-face {
   font-family: 'Noto Sans KR';
-  src: url(NotoSansKR-Regular.woff) format('woff');
+  src: url('./NotoSansKR-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
