@@ -7,6 +7,7 @@ export const HomeWrapper = styled.div`
   flex-direction: column;
   margin: 0 auto;
   width: 1200px;
-  height: 100vh;
+  height: 100vmax;
   background-color: ${COLOR.WHITE};
+  gap: 1rem;
 `;

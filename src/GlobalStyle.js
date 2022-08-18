@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', 'KoPubWorld', sans-serif;
     background: #F0F0F0;
     line-height: 1;
+    height: 100%;
   }
   a {
     text-decoration: none;
@@ -26,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     border: none;
     padding: 0;
+    -webkit-appearance : none;
+    -moz-appearance:none;
+    appearance:none;
   }
 `;
 
