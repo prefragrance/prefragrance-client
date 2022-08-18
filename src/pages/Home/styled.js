@@ -3,7 +3,7 @@ import COLOR from '../../constants/color';
 
 export const HomeWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   margin: 0 auto;
   width: 1200px;

@@ -16,15 +16,16 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
   button {
-    display: flex;
     cursor: pointer;
     outline: none;
-    border-radius: 3px;
+    border: none;
+    padding: 0;
   };
   input {
     display: flex;
     outline: none;
-    padding-left: 10px;
+    border: none;
+    padding: 0;
   }
 `;
 

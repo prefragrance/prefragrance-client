@@ -1,6 +1,6 @@
 import React from 'react';
 import { HomeWrapper } from './styled';
-import Header from '../../components/Home/Header';
+import Banner from '../../components/Home/Banner';
 import Magazine from '../../components/Home/Magazine';
 import Recommendation from '../../components/Home/Recommendation';
 import BestReview from '../../components/Home/BestReview';
@@ -9,7 +9,7 @@ import Footer from '../../components/shared/Footer';
 const Home = () => {
   return (
     <HomeWrapper>
-      <Header />
+      <Banner />
       <Magazine />
       <Recommendation />
       <BestReview />
