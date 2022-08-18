@@ -21,10 +21,10 @@ export const Title = styled.div`
 
 export const FilterUl = styled.ul`
   display: flex;
-  gap: 0.5rem;
   & > li::after {
     font-size: 1rem;
     content: '|';
+    padding: 0 0.4rem;
   }
   & > li:last-child::after {
     content: '';

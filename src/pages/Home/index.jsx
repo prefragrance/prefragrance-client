@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeWrapper } from './styled';
+// import { HomeWrapper } from './styled';
 import Banner from '../../components/Home/Banner';
 import Magazine from '../../components/Home/Magazine';
 import Recommendation from '../../components/Home/Recommendation';
@@ -8,13 +8,15 @@ import Footer from '../../components/shared/Footer';
 
 const Home = () => {
   return (
-    <HomeWrapper>
+    <>
+      {/* <HomeWrapper> */}
       <Banner />
       <Magazine />
       <Recommendation />
       <BestReview />
       <Footer />
-    </HomeWrapper>
+      {/* </HomeWrapper> */}
+    </>
   );
 };
 

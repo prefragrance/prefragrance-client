@@ -1,18 +1,24 @@
 import React from 'react';
-import GlobalStyle from './GlobalStyle';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import GlobalStyle from './GlobalStyle';
+import Template from './Template';
 import Home from './pages/Home';
-import styled from 'styled-components';
+import MainContainer from './components/shared/MainContainer';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      <Template>
+        <MainContainer>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </BrowserRouter>
+        </MainContainer>
+      </Template>
     </>
   );
 };
