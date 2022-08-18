@@ -1,4 +1,5 @@
 import React from 'react';
+import InfoBox from './InfoBox';
 import { RecommendationSection, Header, Title, FilterUl, Body } from './styled';
 
 const Recommendation = () => {
@@ -11,7 +12,13 @@ const Recommendation = () => {
           <li>조회순</li>
         </FilterUl>
       </Header>
-      <Body></Body>
+      <Body>
+        <InfoBox />
+        <InfoBox />
+        <InfoBox />
+        <InfoBox />
+        <InfoBox />
+      </Body>
     </RecommendationSection>
   );
 };
