@@ -1,7 +1,7 @@
 import React from 'react';
 
-const index = () => {
+const BestReview = () => {
   return <div></div>;
 };
 
-export default index;
+export default BestReview;
