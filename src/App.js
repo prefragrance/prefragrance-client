@@ -13,8 +13,8 @@ const App = () => {
     <>
       <GlobalStyle />
       <Template>
+        <Nav />
         <MainContainer>
-          <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detail" element={<Detail />} />

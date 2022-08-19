@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import COLOR from '../../../constants/color';
 
 export const Container = styled.div`
-  width: 1200px;
+  width: 100%;
   height: 80px;
   position: fixed;
   top: 0px;
