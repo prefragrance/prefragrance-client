@@ -9,4 +9,5 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 0 auto;
   background-color: ${COLOR.WHITE};
+  margin-bottom: 5rem;
 `;

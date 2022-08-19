@@ -7,6 +7,7 @@ import MainContainer from './components/shared/MainContainer';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import Nav from './components/shared/Nav';
+import Footer from './components/shared/Footer';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/detail" element={<Detail />} />
           </Routes>
         </MainContainer>
+        <Footer />
       </Template>
     </>
   );
