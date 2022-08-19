@@ -1,21 +1,29 @@
 import styled from 'styled-components';
 import COLOR from '../../../constants/color';
-import LogoSrc from '../../../assets/images/취향로고.png';
 
-export const NavSection = styled.div`
-  height: 75px;
+export const Container = styled.div`
   width: 100%;
-  display: flex;
+  height: 80px;
   position: fixed;
-  top: 0;
-  z-index: 100;
-  background-color: ${COLOR['GREEN-100']};
+  top: 0px;
+  background-color: ${props =>
+    props.visiblity ? 'rgba(27,84,52,0.7)' : `${COLOR['GREEN-400']}`};
+  backdrop-filter: ${props => props.visiblity && 'blur(30px)'};
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 48px;
+  z-index: 9999;
+  transition: backdrop-filter 0.2s linear 0s, background-color 0.3s linear 0s;
 `;
-
-export const LogoDiv = styled.img.attrs({ src: `${LogoSrc}` })`
+export const LogoBox = styled.div`
   display: flex;
-  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+`;
+export const Title = styled.h2`
+  font-family: 'KoPubWorld_light', sans-serif;
+  white-space: nowrap;
+  color: ${props => props.color};
 `;

@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+
 import GlobalStyle from './GlobalStyle';
 import Template from './Template';
-import Footer from './components/shared/Footer';
-import Home from './pages/Home';
 import MainContainer from './components/shared/MainContainer';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
 import Nav from './components/shared/Nav';
 
 const App = () => {
@@ -14,11 +15,10 @@ const App = () => {
       <Template>
         <Nav />
         <MainContainer>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detail" element={<Detail />} />
+          </Routes>
         </MainContainer>
         <Footer />
       </Template>
