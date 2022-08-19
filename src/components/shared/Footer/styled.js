@@ -10,7 +10,7 @@ export const FooterSection = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  background: ${COLOR['GREEN-100']};
+  background: ${COLOR['GREEN-400']};
 `;
 
 export const LogoDiv = styled.img.attrs({ src: `${LogoSrc}` })`
