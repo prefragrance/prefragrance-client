@@ -4,7 +4,7 @@ import LogoSrc from '../../../assets/images/취향로고.png';
 
 export const BannerSection = styled.div`
   background: ${COLOR['GREEN-100']};
-  width: 100%;
+  min-width: 100%;
   height: 400px;
   display: flex;
   justify-content: center;

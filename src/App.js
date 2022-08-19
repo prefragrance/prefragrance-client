@@ -5,12 +5,14 @@ import Template from './Template';
 import Footer from './components/shared/Footer';
 import Home from './pages/Home';
 import MainContainer from './components/shared/MainContainer';
+import Nav from './components/shared/Nav';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
       <Template>
+        <Nav />
         <MainContainer>
           <BrowserRouter>
             <Routes>
