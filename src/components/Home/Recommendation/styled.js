@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RecommendationSection = styled.div`
-  height: 450px;
+  height: 400px;
   margin: 0 5.6rem;
   display: grid;
   grid-template-rows: 1fr 6fr;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MagazineSection = styled.div`
+  margin-top: 400px;
   height: 550px;
   position: relative;
   display: flex;

@@ -3,7 +3,7 @@ import COLOR from './constants/color';
 
 export const Container = styled.main`
   width: 100%;
-  background: ${COLOR.GRAY};
+  //background: ${COLOR.GRAY};
   margin: 0 auto;
 `;
 

@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif;
     line-height: 1;
     height: 100%;
+    -ms-overflow-style: none;
   }
   a {
     text-decoration: none;
@@ -29,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
     -webkit-appearance : none;
     -moz-appearance:none;
     appearance:none;
+  } 
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
 
