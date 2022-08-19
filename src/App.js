@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from './GlobalStyle';
 import Template from './Template';
-import Home from './pages/Home';
 import MainContainer from './components/shared/MainContainer';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+import Nav from './components/shared/Nav';
 
 const App = () => {
   return (
@@ -12,11 +14,11 @@ const App = () => {
       <GlobalStyle />
       <Template>
         <MainContainer>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detail" element={<Detail />} />
+          </Routes>
         </MainContainer>
       </Template>
     </>

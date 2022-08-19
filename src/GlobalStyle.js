@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'KoPubWorld_medium', 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     line-height: 1;
   }
   a {

@@ -3,7 +3,7 @@ import COLOR from '../../../constants/color';
 
 export const Container = styled.div`
   width: 1200px;
-  height: 100vh;
+  height: auto;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
