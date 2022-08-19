@@ -4,12 +4,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RecoilRoot } from 'recoil';
 import './assets/fonts/fonts.css';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </RecoilRoot>
   </React.StrictMode>,
 );
