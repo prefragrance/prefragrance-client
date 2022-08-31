@@ -16,7 +16,7 @@ import {
 import CodeGraph from '../../shared/Graph/CodeGraph';
 import Keywords from '../../shared/Keywords';
 
-const index = () => {
+const Content = () => {
   return (
     <Container>
       <Thumbnail />
@@ -41,4 +41,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Content;
