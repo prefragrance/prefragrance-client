@@ -1,32 +1,37 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 import GlobalStyle from './GlobalStyle';
-import Template from './Template';
-import MainContainer from './components/shared/MainContainer';
-import Home from './pages/Home';
-import Detail from './pages/Detail';
 import Nav from './components/shared/Nav';
-import Search from './pages/Search';
 import Footer from './components/shared/Footer';
 
-const App = () => {
+import HomePage from './pages/HomePage';
+import DetailPage from './pages/DetailPage';
+import SearchResultPage from './pages/SearchResultPage';
+
+const Layout = () => {
+  return (
+    <div>
+      <Nav />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
+
+function App() {
   return (
     <>
       <GlobalStyle />
-      <Template>
-        <Nav />
-        <MainContainer>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/detail" element={<Detail />} />
-            <Route path="/search" element={<Search />} />
-          </Routes>
-        </MainContainer>
-        <Footer />
-      </Template>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/detail" element={<DetailPage />} />
+          <Route path="/search" element={<SearchResultPage />} />
+        </Route>
+      </Routes>
     </>
   );
-};
+}
 
 export default App;

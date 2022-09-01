@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FaUser } from 'react-icons/fa';
 
 import { Container, LogoBox, Title } from './styled';
 import PATH from '../../../constants/path';
 import COLOR from '../../../constants/color';
+import SearchBar from '../SearchBar';
 
 const Nav = () => {
   const [scroll, setScroll] = useState(0);
@@ -27,10 +27,8 @@ const Nav = () => {
           <Title color={`${COLOR['GREEN-200']}`}>향</Title>
         </LogoBox>
       </Link>
-      <FontAwesomeIcon
-        icon={faUser}
-        style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }}
-      />
+      <SearchBar />
+      <FaUser style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }} />
     </Container>
   );
 };
