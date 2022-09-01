@@ -7,6 +7,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Container, LogoBox, Title } from './styled';
 import PATH from '../../../constants/path';
 import COLOR from '../../../constants/color';
+import SearchBar from '../SearchBar';
 
 const Nav = () => {
   const [scroll, setScroll] = useState(0);
@@ -27,6 +28,7 @@ const Nav = () => {
           <Title color={`${COLOR['GREEN-200']}`}>향</Title>
         </LogoBox>
       </Link>
+      <SearchBar />
       <FontAwesomeIcon
         icon={faUser}
         style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }}
