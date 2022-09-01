@@ -7,9 +7,8 @@ import {
   ReviewInfo,
   Title,
 } from './styled';
-console.log('hi');
+
 const ReviewBox = ({ url, content, nickname, date, producer, name }) => {
-  console.log(name);
   return (
     <ReviewSection>
       <Img src={url} />

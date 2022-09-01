@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { SearchForm } from '../../Home/Banner/styled';
+import React from 'react';
+import { SearchForm } from '../../HomePage/Banner/styled';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Select } from './styled';
