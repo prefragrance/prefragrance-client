@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import {
   Category,
   Container,
@@ -24,9 +23,9 @@ const Content = () => {
           <Title>브랜드 | 제품명</Title>
           <Star>
             {[...Array(Math.trunc(4))].map((_, index) => (
-              <FontAwesomeIcon key={index} icon={faStar} />
+              <FaStar key={index} />
             ))}
-            {Math.trunc(1) ? <FontAwesomeIcon icon={faStarHalfStroke} /> : null}
+            {Math.trunc(1) ? <FaStarHalfAlt /> : null}
           </Star>
         </TitleWrapper>
         <Category>제품군</Category>
