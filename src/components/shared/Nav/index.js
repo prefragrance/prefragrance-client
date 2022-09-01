@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FaUser } from 'react-icons/fa';
 
 import { Container, LogoBox, Title } from './styled';
 import PATH from '../../../constants/path';
@@ -29,10 +28,7 @@ const Nav = () => {
         </LogoBox>
       </Link>
       <SearchBar />
-      <FontAwesomeIcon
-        icon={faUser}
-        style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }}
-      />
+      <FaUser style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }} />
     </Container>
   );
 };

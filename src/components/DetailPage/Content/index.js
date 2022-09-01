@@ -13,7 +13,6 @@ import {
   TitleWrapper,
   Star,
 } from './styled';
-import CodeGraph from '../../shared/Graph/CodeGraph';
 import Keywords from '../../shared/Keywords';
 
 const Content = () => {
@@ -32,7 +31,6 @@ const Content = () => {
         </TitleWrapper>
         <Category>제품군</Category>
         <DetailTitle>메인 코드</DetailTitle>
-        <CodeGraph />
         <DetailTitle>키워드</DetailTitle>
         <Keywords />
         <ReviewBtn>리뷰 쓰기</ReviewBtn>
