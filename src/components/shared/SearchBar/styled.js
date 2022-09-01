@@ -21,3 +21,14 @@ export const SearchForm = styled.form`
     right: 0;
   }
 `;
+
+export const Select = styled.select`
+  display: flex;
+  position: absolute;
+  width: 6rem;
+  background: none;
+  border: none;
+  left: 0.2rem;
+  top: 0;
+  padding: 1.2rem;
+`;

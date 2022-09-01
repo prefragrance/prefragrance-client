@@ -14,7 +14,7 @@ export const SearchForm = styled.form`
     border-radius: 2rem;
     background-color: #e4edcd;
   }
-  button {s
+  button {
     font-size: 1.75rem;
     font-weight: bold;
     font-color: black;
@@ -27,7 +27,7 @@ export const SearchForm = styled.form`
 `;
 
 export const CategoryButton = styled.form`
-  button {s
+  button {
     font-size: 1.75rem;
     font-weight: bold;
     font-color: #ffffff;
