@@ -8,6 +8,8 @@ import Footer from './components/shared/Footer';
 
 import DetailPage from './pages/DetailPage';
 
+import SearchResultPage from './pages/SearchResultPage';
+
 const Layout = () => {
   return (
     <div>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/detail" element={<DetailPage />} />
+          <Route path="/search" element={<SearchResultPage />} />
         </Route>
       </Routes>
     </>

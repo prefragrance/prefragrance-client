@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SearchForm } from './styled.js';
+import { SearchForm } from './styled';
 
-function Search() {
+function SearchModal() {
   const [text, setText] = useState('');
 
   const onChange = e => {
@@ -21,4 +21,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchModal;

@@ -3,6 +3,7 @@ import React from 'react';
 import { ReactDOM } from 'react';
 import { useState, useEffect } from 'react';
 import './styled.css';
+import { Link } from 'react-router-dom';
 
 function SearchResultList() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -65,7 +66,7 @@ function SearchResultList() {
         </div>
         <ul className="card-grid">
           {search(data).map(item => (
-            <li>
+            <Link to={`/`} key={item.id}>
               <article className="card" key={item.alpha3Code}>
                 <div className="card-image">
                   <img src={item.flag.large} alt={item.name} />
@@ -88,7 +89,7 @@ function SearchResultList() {
                   </ol>
                 </div>
               </article>
-            </li>
+            </Link>
           ))}
         </ul>
       </div>
