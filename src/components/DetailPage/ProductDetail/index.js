@@ -8,7 +8,7 @@ import {
   DetailWrapper,
 } from './styled';
 
-const index = () => {
+const ProductDetail = () => {
   return (
     <Container>
       <DetailWrapper>
@@ -35,4 +35,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default ProductDetail;
