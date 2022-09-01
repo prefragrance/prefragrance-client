@@ -3,7 +3,7 @@ import {
   Categories,
   SearchModal,
   SearchResultList,
-} from '../components/Search';
+} from '../components/SearchPage';
 
 const SearchResultPage = () => {
   return (

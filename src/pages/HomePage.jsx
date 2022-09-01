@@ -5,7 +5,7 @@ import Magazine from '../components/HomePage/Magazine';
 import Recommendation from '../components/HomePage/Recommendation';
 import BestReview from '../components/HomePage/BestReview';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Banner />
@@ -16,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
