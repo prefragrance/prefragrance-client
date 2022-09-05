@@ -1,8 +1,21 @@
+import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../../constants/color';
 import LogoSrc from '../../../assets/images/취향로고.png';
 
-export const BannerSection = styled.div`
+const Banner = () => {
+  return (
+    <BannerSection>
+      <Logo />
+      <SearchForm>
+        <input placeholder="향 제품, 브랜드, 키워드를 검색해보세요!" />
+        <button>검색</button>
+      </SearchForm>
+    </BannerSection>
+  );
+};
+
+const BannerSection = styled.div`
   background: ${COLOR['GREEN-400']};
   min-width: 100%;
   height: 400px;
@@ -17,11 +30,11 @@ export const BannerSection = styled.div`
   left: 0;
 `;
 
-export const Logo = styled.img.attrs({ src: `${LogoSrc}` })`
+const Logo = styled.img.attrs({ src: `${LogoSrc}` })`
   width: 20rem;
 `;
 
-export const SearchForm = styled.form`
+const SearchForm = styled.form`
   display: flex;
   justify-content: center;
   width: 50%;
@@ -42,3 +55,5 @@ export const SearchForm = styled.form`
     right: 0;
   }
 `;
+
+export default Banner;
