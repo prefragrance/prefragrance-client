@@ -1,4 +1,4 @@
-import { IconListBox } from './styled';
+import styled from 'styled-components';
 
 import { IoMdFlower } from 'react-icons/io';
 import {
@@ -44,6 +44,7 @@ export const IconWeatherList = () => {
     </IconListBox>
   );
 };
+
 export const IconTimeList = () => {
   return (
     <IconListBox>
@@ -64,3 +65,10 @@ export const IconTimeList = () => {
     </IconListBox>
   );
 };
+
+const IconListBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+`;

@@ -1,12 +1,6 @@
 import React from 'react';
 import { IconWeatherList, IconTimeList } from './IconList';
-import {
-  Container,
-  DetailBox,
-  DetailDesc,
-  DetailTitle,
-  DetailWrapper,
-} from './styled';
+import styled from 'styled-components';
 
 const ProductDetail = () => {
   return (
@@ -34,5 +28,36 @@ const ProductDetail = () => {
     </Container>
   );
 };
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const DetailWrapper = styled.div`
+  width: 1000px;
+  margin: 20px 0;
+  padding: 0px 30px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+`;
+const DetailBox = styled.div`
+  flex: 0.5;
+`;
+const DetailTitle = styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 0;
+  margin-bottom: 5px;
+`;
+const DetailDesc = styled.div`
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+`;
 
 export default ProductDetail;
