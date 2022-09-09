@@ -1,8 +1,7 @@
 import React from 'react';
-import { SearchForm } from '../../HomePage/Banner/styled';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Select } from './styled';
+import { Select, SearchForm } from './styled';
 
 const SearchBar = () => {
   const { register, handleSubmit, setValue } = useForm();
@@ -20,9 +19,9 @@ const SearchBar = () => {
   return (
     <SearchForm onSubmit={handleSubmit(onSubmit)}>
       <Select {...register('opt')}>
-        <option value="name">제품명</option>
-        <option value="tag">키워드</option>
-        <option value="producer">브랜드</option>
+        <option value="name">제품명 ▾</option>
+        <option value="tag">키워드 ▾</option>
+        <option value="producer">브랜드 ▾</option>
       </Select>
       <input
         {...register('search', { required: '검색어를 입력해주세요.' })}
