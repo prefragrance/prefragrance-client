@@ -1,13 +1,6 @@
 import React from 'react';
 import ReviewBox from './ReviewBox';
-import {
-  BestReviewSection,
-  Header,
-  Title,
-  Body,
-  ColumnSection,
-  RowSection,
-} from './styled';
+import styled from 'styled-components';
 
 const BestReview = () => {
   const RAW_DATA = [
@@ -101,5 +94,42 @@ const BestReview = () => {
     </BestReviewSection>
   );
 };
+
+const BestReviewSection = styled.div`
+  height: 1000px;
+  margin: 0 5.6rem;
+  display: grid;
+  grid-template-rows: 50px auto;
+  gap: 1rem;
+`;
+
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Title = styled.div`
+  font-size: 1.75rem;
+  font-weight: 700;
+`;
+
+const Body = styled.div`
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  background-color: #ededed;
+  gap: 1rem;
+`;
+
+const ColumnSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
+
+const RowSection = styled.div`
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+`;
 
 export default BestReview;

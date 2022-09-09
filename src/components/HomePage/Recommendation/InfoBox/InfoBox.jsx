@@ -1,6 +1,17 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const InfoSection = styled.div`
+const InfoBox = () => {
+  return (
+    <InfoSection>
+      <Img src="" alt="img" />
+      <Title>제품명</Title>
+      <Brand>브랜드</Brand>
+    </InfoSection>
+  );
+};
+
+const InfoSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -8,13 +19,13 @@ export const InfoSection = styled.div`
   gap: 0.5rem;
 `;
 
-export const Img = styled.img`
+const Img = styled.img`
   width: 180px;
   height: 250px;
   background-color: #f0f0f0;
 `;
 
-export const Title = styled.div`
+const Title = styled.div`
   font-weight: 700;
   font-size: 1.1rem;
   margin-top: 0.25rem;
@@ -22,6 +33,8 @@ export const Title = styled.div`
   text-overflow: ellipsis;
 `;
 
-export const Brand = styled.div`
+const Brand = styled.div`
   font-size: 0.8rem;
 `;
+
+export default InfoBox;
