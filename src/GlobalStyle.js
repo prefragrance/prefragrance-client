@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif;
     line-height: 1;
     height: 100%;
+    min-width: 1200px;
     -ms-overflow-style: none;
   }
   a {
