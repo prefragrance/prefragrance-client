@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLOR } from '../../../constants';
 
 export const SearchForm = styled.form`
   display: flex;
@@ -8,14 +9,15 @@ export const SearchForm = styled.form`
   input {
     font-size: 1rem;
     padding: 1rem;
-    padding-left: 5rem;
+    padding-left: 7.5rem;
+    padding-right: 9rem;
     border-radius: 2rem;
     width: 100%;
   }
   button {
     font-size: 1.25rem;
     width: 7rem;
-    height: 3.1rem;
+    height: 3.2rem;
     border-radius: 2rem;
     position: absolute;
     right: 0;
@@ -25,10 +27,15 @@ export const SearchForm = styled.form`
 export const Select = styled.select`
   display: flex;
   position: absolute;
-  width: 6rem;
-  background: none;
-  border: none;
-  left: 0.2rem;
+  width: 6.5rem;
+  height: 3.2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  left: 0rem;
   top: 0;
-  padding: 1.2rem;
+  padding: 0.8rem;
+  padding-left: 1.6rem;
+  background: ${COLOR['GREEN-200']};
+  font-size: 1.1rem;
+  color: BLACK;
 `;
