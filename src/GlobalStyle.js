@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'NotoSansKR_regular', sans-serif;
     line-height: 1;
     height: 100%;
     min-width: 1200px;
