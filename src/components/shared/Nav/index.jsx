@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../../constants/color';
 import { PATH } from '../../../constants';
@@ -14,7 +14,12 @@ const Nav = () => {
       <Link to={`${PATH.route.home}`}>
         <LogoBox>
           <Title color={`${COLOR['GREEN-100']}`}>취</Title>
-          <Title color={`${COLOR['GREEN-200']}`}>향</Title>
+          <Title
+            color={`${COLOR['GREEN-200']}`}
+            style={{ marginLeft: '-10px' }}
+          >
+            향
+          </Title>
         </LogoBox>
       </Link>
       <SearchBar />
