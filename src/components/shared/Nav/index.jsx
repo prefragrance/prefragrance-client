@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../../constants/color';
 import { PATH } from '../../../constants';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { FaUser } from 'react-icons/fa';
 
 import SearchBar from '../SearchBar';
 
 const Nav = () => {
+  const location = useLocation();
+
   return (
     <Container>
       <Link to={`${PATH.route.home}`}>
@@ -22,7 +24,7 @@ const Nav = () => {
           </Title>
         </LogoBox>
       </Link>
-      <SearchBar />
+      {location.pathname !== '/' && <SearchBar />}
       <FaUser style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }} />
     </Container>
   );
