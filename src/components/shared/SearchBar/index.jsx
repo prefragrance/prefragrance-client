@@ -1,16 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLOR, PATH } from '../../../constants';
 
-import Modal from './Modal';
+import SearchModal from './Modal/SearchModal';
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 import { apiCall } from '../../../hook/useApiCall';
 
 const SearchBarInput = () => {
+  const [SearchModalOpen, setSearchModalOpen] = useState(false);
   const cateInputRef = useRef();
   const searchInputRef = useRef();
   const navigate = useNavigate();
+
+  const showSearchModal = () => {
+    setSearchModalOpen(prev => !prev);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -50,13 +56,20 @@ const SearchBarInput = () => {
         <option value="tag">키워드</option>
         <option value="producer">브랜드</option>
       </SelectBox>
+
       <input
         type="text"
         ref={searchInputRef}
         placeholder="향, 제품, 브랜드, 키워드를 검색해보세요!"
       />
+
+      <ModalDnDBtnWrapper onClick={showSearchModal}>
+        {SearchModalOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+      </ModalDnDBtnWrapper>
+
       <button type="submit">검색</button>
-      <Modal />
+
+      {SearchModalOpen && <SearchModal />}
     </Form>
   );
 };
@@ -96,6 +109,16 @@ const SelectBox = styled.select`
   margin: 0;
   padding: 0;
   padding-left: 1.5rem;
+`;
+
+const ModalDnDBtnWrapper = styled.div`
+  & {
+    position: absolute;
+    top: 1rem;
+    right: 7rem;
+
+    font-size: 1.2rem;
+  }
 `;
 
 export default SearchBarInput;
