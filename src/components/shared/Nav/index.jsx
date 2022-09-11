@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../../constants/color';
-import PATH from '../../../constants/path';
-import { Link } from 'react-router-dom';
+import { PATH } from '../../../constants';
+import { Link, useLocation } from 'react-router-dom';
 
 import { FaUser } from 'react-icons/fa';
 
 import SearchBar from '../SearchBar';
 
 const Nav = () => {
-  const [scroll, setScroll] = useState(0);
-
-  const onScroll = () => {
-    setScroll(window.scrollY || document.documentElement.scrollTop);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-  });
+  const location = useLocation();
 
   return (
-    <Container visibility={scroll > 80}>
+    <Container>
       <Link to={`${PATH.route.home}`}>
         <LogoBox>
           <Title color={`${COLOR['GREEN-100']}`}>취</Title>
-          <Title color={`${COLOR['GREEN-200']}`}>향</Title>
+          <Title
+            color={`${COLOR['GREEN-200']}`}
+            style={{ marginLeft: '-10px' }}
+          >
+            향
+          </Title>
         </LogoBox>
       </Link>
-      <SearchBar />
+      {location.pathname !== '/' && <SearchBar />}
       <FaUser style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }} />
     </Container>
   );
@@ -39,15 +36,12 @@ const Container = styled.div`
   height: 80px;
   position: fixed;
   top: 0px;
-  background-color: ${props =>
-    props.visibility ? 'rgba(27,84,52,1)' : `${COLOR['GREEN-400']}`};
-  // backdrop-filter: ${props => props.visibility && 'blur(30px)'};
+  background-color: ${COLOR['GREEN-400']};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 48px;
   z-index: 9999;
-  // transition: backdrop-filter 0.2s linear 0s, background-color 0.3s linear 0s;
 `;
 const LogoBox = styled.div`
   display: flex;
