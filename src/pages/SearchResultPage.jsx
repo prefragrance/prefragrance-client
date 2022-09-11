@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-  Categories,
-  SearchModal,
-  SearchResultList,
-} from '../components/Search';
+import { Categories, SearchResultList } from '../components/SearchResultPage';
 
 const SearchResultPage = () => {
   return (
     <>
-      <SearchModal />
       <Categories />
       <SearchResultList />
     </>

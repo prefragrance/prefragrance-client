@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../../constants/color';
+
 import LogoSrc from '../../../assets/images/취향로고.png';
+import SearchBar from '../../shared/SearchBar';
 
 const Banner = () => {
   return (
     <BannerSection>
       <Logo />
-      <SearchForm>
+      <SearchBar />
+      {/* <SearchForm>
         <input placeholder="향 제품, 브랜드, 키워드를 검색해보세요!" />
         <button>검색</button>
-      </SearchForm>
+      </SearchForm> */}
     </BannerSection>
   );
 };

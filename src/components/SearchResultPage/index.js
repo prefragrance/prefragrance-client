@@ -2,7 +2,6 @@
 // pages/SearchResultPage.js 에서 한번에 import 가능
 
 import Categories from './Category';
-import SearchModal from './SearchModal';
 import SearchResultList from './SearchResultList';
 
-export { Categories, SearchModal, SearchResultList };
+export { Categories, SearchResultList };
