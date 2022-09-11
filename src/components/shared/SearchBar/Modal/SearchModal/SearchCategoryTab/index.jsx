@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SearchCategory from './SearchCategory';
-import { COLOR } from '../../../../../constants';
+import COLOR from '../../../../../../constants/color';
 
 const KEYWORDS = ['추천 검색어', '인기 검색어', '최근 검색어'];
 
