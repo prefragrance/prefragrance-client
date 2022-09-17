@@ -4,11 +4,11 @@ import COLOR from '../../../../../constants/color';
 import SearchCategoryTab from './SearchCategoryTab';
 import KeywordList from './KeywordList';
 
-const SearchModal = () => {
+const SearchModal = ({ isOpen }) => {
   return (
     <ModalSection>
       <SearchCategoryTab />
-      <KeywordList />
+      <KeywordList isOpen={isOpen} />
     </ModalSection>
   );
 };

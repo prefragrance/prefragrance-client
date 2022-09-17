@@ -23,9 +23,9 @@ export const updateRecentSearch = value => {
   } else {
     recentSearchList.unshift(value);
   }
-  // 최근검색어가 10개 넘어가면 cut
-  if (recentSearchList.length > 10) {
-    recentSearchList = recentSearchList.slice(0, 10);
+  // 최근검색어가 5개 넘어가면 cut
+  if (recentSearchList.length > 5) {
+    recentSearchList = recentSearchList.slice(0, 5);
   }
   setLocalStorage('recentSearchList', JSON.stringify(recentSearchList));
 };

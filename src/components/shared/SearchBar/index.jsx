@@ -11,7 +11,7 @@ import { updateRecentSearch } from '../../../hook/useLocal';
 import { isTF } from '../../../hook/useCommon';
 
 const SearchBarInput = () => {
-  const [SearchModalOpen, setSearchModalOpen] = useState(false);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
   const cateInputRef = useRef();
   const searchInputRef = useRef();
   const navigate = useNavigate();
@@ -78,12 +78,12 @@ const SearchBarInput = () => {
       />
 
       <ModalDnDBtnWrapper onClick={showSearchModal}>
-        {SearchModalOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+        {searchModalOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
       </ModalDnDBtnWrapper>
 
       <button type="submit">검색</button>
 
-      {SearchModalOpen && <SearchModal />}
+      {searchModalOpen && <SearchModal isOpen={searchModalOpen} />}
     </Form>
   );
 };
