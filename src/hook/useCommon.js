@@ -11,3 +11,16 @@ export const isTF = value => {
     return true;
   }
 };
+
+// get, set, delete localStorage
+export function setLocalStorage(name, value) {
+  window.localStorage.setItem(name, value);
+}
+
+export function getLocalStorage(name, value) {
+  return window.localStorage.getItem(name, value);
+}
+
+export function deleteLocalStorage(name) {
+  window.localStorage.removeItem(name);
+}

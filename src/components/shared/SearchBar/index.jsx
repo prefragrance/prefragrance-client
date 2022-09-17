@@ -7,6 +7,8 @@ import SearchModal from './Modal/SearchModal';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 import { apiCall } from '../../../hook/useApiCall';
+import { updateRecentSearch } from '../../../hook/useLocal';
+import { isTF } from '../../../hook/useCommon';
 
 const SearchBarInput = () => {
   const [SearchModalOpen, setSearchModalOpen] = useState(false);
@@ -25,8 +27,9 @@ const SearchBarInput = () => {
     // search input validation
     if (searchInput.trim().length === 0) {
       alert('검색어를 입력해주세요.');
+      // TODO: need routing validation check
     }
-    // api call
+    // 검색 api call
     const searchResult = apiCall({
       service: 'search',
       method: 'get',
@@ -35,15 +38,25 @@ const SearchBarInput = () => {
     searchResult.then(res => {
       if (res.status === 200) {
         console.log(res);
-        // 임시 router path
+        // TODO : 임시 router path
         navigate(`${PATH.route.search_result}`);
-        // 나중에 status별로 error handling
+        // TODO : 나중에 status별로 error handling
       } else {
         console.log('No data');
       }
     });
     // set search input ""
+    cateInputRef.current.value = '통합검색';
     searchInputRef.current.value = '';
+  };
+
+  const onEnter = e => {
+    // 최근검색어 api call
+    if (e.key === 'Enter') {
+      if (isTF(e.target.value)) {
+        updateRecentSearch(e.target.value);
+      }
+    }
   };
 
   return (
@@ -61,6 +74,7 @@ const SearchBarInput = () => {
         type="text"
         ref={searchInputRef}
         placeholder="향, 제품, 브랜드, 키워드를 검색해보세요!"
+        onKeyPress={onEnter}
       />
 
       <ModalDnDBtnWrapper onClick={showSearchModal}>
