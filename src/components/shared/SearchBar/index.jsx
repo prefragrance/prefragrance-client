@@ -27,7 +27,7 @@ const SearchBarInput = () => {
     // search input validation
     if (searchInput.trim().length === 0) {
       alert('검색어를 입력해주세요.');
-      // TODO: need routing validation check
+      // TODO SY : need routing validation check
     }
     // 검색 api call
     const searchResult = apiCall({
@@ -38,9 +38,9 @@ const SearchBarInput = () => {
     searchResult.then(res => {
       if (res.status === 200) {
         console.log(res);
-        // TODO : 임시 router path
+        // TODO SY : 임시 router path
         navigate(`${PATH.route.search_result}`);
-        // TODO : 나중에 status별로 error handling
+        // TODO SY : 나중에 status별로 error handling
       } else {
         console.log('No data');
       }
@@ -62,8 +62,6 @@ const SearchBarInput = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <SelectBox ref={cateInputRef}>
-        {/* pokemon api 이용을 위해 임시로 */}
-        <option value="id">id</option>
         <option value="whole">통합검색</option>
         <option value="name">제품명</option>
         <option value="tag">키워드</option>

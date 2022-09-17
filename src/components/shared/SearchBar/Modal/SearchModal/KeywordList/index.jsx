@@ -19,6 +19,7 @@ const KeywordList = ({ isOpen }) => {
 
   return (
     <Wrapper>
+      {/* TODO MG : tab 전환시 mapping하는 data도 전환 */}
       {recentSearchList.map(keyword => (
         <KeywordBlock key={keyword} text={keyword} />
       ))}
