@@ -99,9 +99,10 @@ const SearchBarInput = () => {
         }}
       />
 
+      {/* 카테고리 모달창 토글버튼에서 재활용할 것을 생각해서 지우지 않고 주석처리하겠음
       <ModalDnDBtnWrapper onClick={toggleSearchModal}>
         {searchModalOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
-      </ModalDnDBtnWrapper>
+      </ModalDnDBtnWrapper> */}
 
       <button type="submit">검색</button>
 
