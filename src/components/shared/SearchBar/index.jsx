@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLOR, PATH } from '../../../constants';
@@ -12,11 +12,13 @@ import { isTF } from '../../../hook/useCommon';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  console.log(searchModalOpen);
+  const formRef = useRef();
   const cateInputRef = useRef();
   const searchInputRef = useRef();
   const navigate = useNavigate();
 
-  const showSearchModal = () => {
+  const toggleSearchModal = () => {
     setSearchModalOpen(prev => !prev);
   };
 
@@ -59,8 +61,26 @@ const SearchBarInput = () => {
     }
   };
 
+  useEffect(() => {
+    // 검색창 내외부 감지 함수
+    // 여기서 formRef가 아닌 document에 이벤트리스너를 달아준 것은 외부 영역이 form의 여집합이기 때문
+    document.addEventListener('mousedown', clickSearchbarOutside);
+    return () => {
+      // mousedown 이벤트리스너를 제거해줌으로서 메모리 누수 차단
+      document.removeEventListener('mousedown', clickSearchbarOutside);
+    };
+  }, [searchModalOpen]); // searchModalOpen state를 추적해서 최신 값에 맞게 clickSearchbarOutside가 실행되게끔 함
+
+  const clickSearchbarOutside = event => {
+    // 모달 창이 열려있는 상태(searchModalOpen)
+    // 그리고 이벤트 발생 지점이 form의 요소가 아닐 때만 모달을 꺼주도록 함
+    if (searchModalOpen && !formRef.current.contains(event.target)) {
+      toggleSearchModal();
+    }
+  };
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} ref={formRef}>
       <SelectBox ref={cateInputRef}>
         <option value="whole">통합검색</option>
         <option value="name">제품명</option>
@@ -73,9 +93,13 @@ const SearchBarInput = () => {
         ref={searchInputRef}
         placeholder="향, 제품, 브랜드, 키워드를 검색해보세요!"
         onKeyPress={onEnter}
+        onFocus={() => {
+          // input창 focus시 모달 오픈만 가능(끄기 불가)
+          setSearchModalOpen(true);
+        }}
       />
 
-      <ModalDnDBtnWrapper onClick={showSearchModal}>
+      <ModalDnDBtnWrapper onClick={toggleSearchModal}>
         {searchModalOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
       </ModalDnDBtnWrapper>
 
