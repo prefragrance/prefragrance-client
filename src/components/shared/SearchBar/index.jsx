@@ -12,7 +12,6 @@ import { isTF } from '../../../hook/useCommon';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
-  console.log(searchModalOpen);
   const formRef = useRef();
   const cateInputRef = useRef();
   const searchInputRef = useRef();
