@@ -15,7 +15,7 @@ const KeywordList = ({ isOpen }) => {
         : [];
       setRecentSearchList([...getList]);
     }
-  }, []);
+  }, [recentSearchList]); // 최근 검색어 삭제 시 바로바로 리렌더링되게 deps 추가함
 
   return (
     <Wrapper>

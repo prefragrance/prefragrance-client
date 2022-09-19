@@ -4,6 +4,9 @@ import COLOR from '../../../../../constants/color';
 import SearchCategoryTab from './SearchCategoryTab';
 import KeywordList from './KeywordList';
 
+const MOCK_KEYWORD_1 = ['가나다라', '마바사', '아자차카', '타파하'];
+const MOCK_KEYWORD_2 = ['가나다라', '마바사', '아자차카', '타파하'];
+
 const SearchModal = ({ isOpen }) => {
   return (
     <ModalSection>
