@@ -1,6 +1,6 @@
 const PATH = {
   api: {
-    BASE_URL: 'localhost:8000',
+    BASE_URL: 'http://localhost:8000',
     auth: {},
     search: '/search',
   },
