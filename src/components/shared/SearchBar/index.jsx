@@ -36,17 +36,18 @@ const SearchBarInput = () => {
       data: { category: cateInput, searchInput: searchInput },
     });
     searchResult.then(res => {
-      if (res.status === 200) {
-        console.log(res);
-        // TODO SY : 임시 router path
-        navigate(`${PATH.route.search_result}`);
-        // TODO SY : 나중에 status별로 error handling
-      } else {
-        console.log('No data');
-      }
+      console.log(res);
+      // if (res.status === 200) {
+      //   console.log(res);
+      //   // TODO SY : 임시 router path
+      //   navigate(`${PATH.route.search_result}`);
+      //   // TODO SY : 나중에 status별로 error handling
+      // } else {
+      //   console.log('No data');
+      // }
     });
     // set search input ""
-    cateInputRef.current.value = '통합검색';
+    cateInputRef.current.value = 'whole';
     searchInputRef.current.value = '';
   };
 
