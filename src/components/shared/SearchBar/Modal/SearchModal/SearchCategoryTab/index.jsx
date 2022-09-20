@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import SearchCategory from './SearchCategory';
 import COLOR from '../../../../../../constants/color';
-import { searchTabState } from '../../../../../../recoil/search/atom';
-import { useRecoilState } from 'recoil';
+// import { searchTabState } from '../../../../../../recoil/search/atom';
+// import { useRecoilState } from 'recoil';
 
 const KEYWORDS = ['추천 검색어', '인기 검색어', '최근 검색어'];
 
