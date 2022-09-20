@@ -2,7 +2,7 @@ const PATH = {
   api: {
     BASE_URL: 'http://localhost:8000',
     auth: {},
-    search: '/search',
+    search: 'search',
   },
   route: {
     home: '/',
