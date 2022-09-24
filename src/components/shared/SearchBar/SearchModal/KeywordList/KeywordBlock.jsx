@@ -1,28 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import COLOR from '../../../../../../constants/color';
+import { COLOR } from 'constants';
 import { IoSearchCircle } from 'react-icons/io5';
 import { HiOutlineX } from 'react-icons/hi';
-import { deleteRecentSearchEach } from '../../../../../../hook/useLocal';
-import { useRecoilValue } from 'recoil';
-import {
-  searchTabState,
-  searchTabList,
-} from '../../../../../../recoil/search/atom';
+import { deleteRecentSearchEach } from 'hook/useLocal';
 
-const KeywordBlock = ({ text }) => {
-  const searchTab = useRecoilValue(searchTabState);
+const KeywordBlock = ({ text, currentTab, recentUpdate, setRecentUpdate }) => {
+  // 최근검색어 개별 삭제 -> 검색어 바껴야하니까 recentUpdate + 1
   const onDeleteRecentKeyword = () => {
     deleteRecentSearchEach(text);
+    setRecentUpdate(recentUpdate + 1);
   };
 
   return (
     <Wrapper>
       <QuerySection>
-        <IoSearchCircle color={COLOR['GRAY-200']} fontSize="1.5rem" />
+        <IoSearchCircle
+          color={COLOR['GRAY-200']}
+          fontSize="1.5rem"
+          opacity="0.5"
+        />
         <span>{text}</span>
       </QuerySection>
-      <DeleteBtnSection disabled={searchTab !== searchTabList[2]}>
+      <DeleteBtnSection disabled={currentTab !== '최근 검색어'}>
         <HiOutlineX
           color={COLOR['GRAY-200']}
           fontSize="0.9rem"

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import COLOR from '../../../constants/color';
+import COLOR from 'constants/color';
 import { PATH } from '../../../constants';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -15,17 +15,14 @@ const Nav = () => {
     <Container>
       <Link to={`${PATH.route.home}`}>
         <LogoBox>
-          <Title color={`${COLOR['GREEN-100']}`}>취</Title>
-          <Title
-            color={`${COLOR['GREEN-200']}`}
-            style={{ marginLeft: '-10px' }}
-          >
+          <Title color={`${COLOR.green[100]}`}>취</Title>
+          <Title color={`${COLOR.green[200]}`} style={{ marginLeft: '-10px' }}>
             향
           </Title>
         </LogoBox>
       </Link>
       {location.pathname !== '/' && <SearchBar />}
-      <FaUser style={{ fontSize: 32, color: `${COLOR['GREEN-100']}` }} />
+      <FaUser style={{ fontSize: 32, color: `${COLOR.green[100]}` }} />
     </Container>
   );
 };
@@ -36,7 +33,7 @@ const Container = styled.div`
   height: 80px;
   position: fixed;
   top: 0px;
-  background-color: ${COLOR['GREEN-400']};
+  background-color: ${COLOR.green[400]};
   display: flex;
   justify-content: space-between;
   align-items: center;
