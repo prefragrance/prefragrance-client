@@ -10,6 +10,7 @@ import { isTF } from 'hook/useCommon';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  // 최근 검색어 rendering trigger용, 검색할 때마다 recentUpdate + 1
   const [recentUpdate, setRecentUpdate] = useState(0);
   const cateInputRef = useRef();
   const searchInputRef = useRef();
