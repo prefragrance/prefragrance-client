@@ -1,21 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import COLOR from '../../../../../../constants/color';
+import { useRecoilValue } from 'recoil';
+import { searchTabState } from '../../../../../../recoil/search/atom';
 
-const SearchCategory = ({ text }) => {
-  return <Wrapper>{text}</Wrapper>;
+const SearchCategory = ({ text, setSearchTab, isChecked }) => {
+  return (
+    <>
+      {isChecked ? (
+        <Chosen onClick={() => setSearchTab(text)}>{text}</Chosen>
+      ) : (
+        <Unchosen onClick={() => setSearchTab(text)}>{text}</Unchosen>
+      )}
+    </>
+  );
 };
 
-const Wrapper = styled.li`
-  justify-content: center;  
+const Unchosen = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  text-align: center;
-  background-color: ${COLOR['GRAY-100']}
-  color: ${COLOR['GRAY-200']}
-  &:focus {
-    color: ${COLOR['GREEN-400']}
-    background-color: ${COLOR.WHITE}
-  }
+  height: 100%;
+  color: ${COLOR['GRAY-200']};
+  background-color: ${COLOR['GRAY-100']};
+`;
+
+const Chosen = styled(Unchosen)`
+  color: ${COLOR.BLACK};
+  background-color: ${COLOR.WHITE};
+  font-weight: 600;
+  z-index: 99;
+  box-shadow: 0rem -0.01rem 0.15rem 0rem ${COLOR['GRAY-200']};
+  border-radius: 0.5rem;
 `;
 
 export default SearchCategory;
