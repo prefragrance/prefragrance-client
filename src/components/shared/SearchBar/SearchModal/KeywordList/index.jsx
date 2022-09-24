@@ -5,8 +5,17 @@ import COLOR from 'constants/color';
 import { apiCall } from 'hook/useApiCall';
 import KeywordBlock from './KeywordBlock';
 
-const KeywordList = ({ currentTab }) => {
+const KeywordList = ({ currentTab, recentUpdate, setRecentUpdate }) => {
   const [searchKeywordList, setSearchKeywordList] = useState([]);
+
+  useEffect(() => {
+    const recentList = isTF(getLocalStorage('recentSearchList'))
+      ? JSON.parse(getLocalStorage('recentSearchList'))
+      : [];
+    if (currentTab === '최근 검색어') {
+      setSearchKeywordList([...recentList]);
+    }
+  }, [currentTab, recentUpdate]);
 
   // 검색어 가져오기
   const getSearchKeyword = currentTab => {
@@ -43,7 +52,7 @@ const KeywordList = ({ currentTab }) => {
           ? JSON.parse(getLocalStorage('recentSearchList'))
           : [];
         console.log(recentList);
-        setSearchKeywordList(recentList);
+        setSearchKeywordList([...recentList]);
     }
   };
 
@@ -56,7 +65,13 @@ const KeywordList = ({ currentTab }) => {
     <Wrapper>
       {searchKeywordList.length ? (
         searchKeywordList.map(keyword => (
-          <KeywordBlock key={keyword} text={keyword} currentTab={currentTab} />
+          <KeywordBlock
+            key={keyword}
+            text={keyword}
+            currentTab={currentTab}
+            recentUpdate={recentUpdate}
+            setRecentUpdate={setRecentUpdate}
+          />
         ))
       ) : (
         <NoRecentSearch>{currentTab} 내역이 없습니다.</NoRecentSearch>

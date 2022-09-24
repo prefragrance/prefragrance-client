@@ -10,6 +10,7 @@ import { isTF } from 'hook/useCommon';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [recentUpdate, setRecentUpdate] = useState(0);
   const cateInputRef = useRef();
   const searchInputRef = useRef();
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const SearchBarInput = () => {
     // 최근검색어 저장
     if (isTF(searchInputRef)) {
       updateRecentSearch(searchInput);
+      setRecentUpdate(recentUpdate + 1);
     }
     // 검색 api call
     const searchResult = apiCall({
@@ -58,6 +60,7 @@ const SearchBarInput = () => {
     if (e.key === 'Enter') {
       if (isTF(e.target.value)) {
         updateRecentSearch(e.target.value);
+        setRecentUpdate(recentUpdate + 1);
       }
     }
   };
@@ -90,6 +93,8 @@ const SearchBarInput = () => {
         <SearchModal
           toggleSearchModalOpen={toggleSearchModal}
           searchModalOpen={searchModalOpen}
+          recentUpdate={recentUpdate}
+          setRecentUpdate={setRecentUpdate}
         />
       )}
     </Form>

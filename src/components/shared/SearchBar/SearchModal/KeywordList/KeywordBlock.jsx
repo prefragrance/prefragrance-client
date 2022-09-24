@@ -5,9 +5,10 @@ import { IoSearchCircle } from 'react-icons/io5';
 import { HiOutlineX } from 'react-icons/hi';
 import { deleteRecentSearchEach } from 'hook/useLocal';
 
-const KeywordBlock = ({ text, currentTab }) => {
+const KeywordBlock = ({ text, currentTab, recentUpdate, setRecentUpdate }) => {
   const onDeleteRecentKeyword = () => {
     deleteRecentSearchEach(text);
+    setRecentUpdate(recentUpdate + 1);
   };
 
   return (
