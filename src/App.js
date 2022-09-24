@@ -40,5 +40,6 @@ function App() {
 const OutletWrapper = styled.div`
   width: 1200px;
   margin: 0 auto;
+  margin-top: 80px;
 `;
 export default App;
