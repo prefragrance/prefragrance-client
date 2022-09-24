@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import COLOR from 'constants/color';
 
 const SearchCategoryTab = ({ categories, currentTab, setCurrentTab }) => {
+  // change current tab
   const handleTabClick = e => {
     setCurrentTab(e.target.textContent);
   };

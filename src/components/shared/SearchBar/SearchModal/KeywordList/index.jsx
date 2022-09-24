@@ -9,12 +9,14 @@ const KeywordList = ({ currentTab, recentUpdate, setRecentUpdate }) => {
   const [searchKeywordList, setSearchKeywordList] = useState([]);
 
   useEffect(() => {
-    const recentList = isTF(getLocalStorage('recentSearchList'))
-      ? JSON.parse(getLocalStorage('recentSearchList'))
-      : [];
+    // 현재 최근검색어 탭일 경우 searchKeywordList 다시 set -> 최근검색어 삭제할 경우에
     if (currentTab === '최근 검색어') {
+      const recentList = isTF(getLocalStorage('recentSearchList'))
+        ? JSON.parse(getLocalStorage('recentSearchList'))
+        : [];
       setSearchKeywordList([...recentList]);
     }
+    // recentUpdate 바뀔 때마다 rendering
   }, [currentTab, recentUpdate]);
 
   // 검색어 가져오기

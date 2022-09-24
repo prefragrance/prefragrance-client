@@ -17,6 +17,7 @@ const SearchModal = ({
 
   const handleDeleteRecentSearchAll = () => {
     deleteRecentSearchAll();
+    // 최근 검색어 바꼈으니까 recentUpdate + 1
     setRecentUpdate(recentUpdate + 1);
   };
 

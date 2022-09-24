@@ -6,6 +6,7 @@ import { HiOutlineX } from 'react-icons/hi';
 import { deleteRecentSearchEach } from 'hook/useLocal';
 
 const KeywordBlock = ({ text, currentTab, recentUpdate, setRecentUpdate }) => {
+  // 최근검색어 개별 삭제 -> 검색어 바껴야하니까 recentUpdate + 1
   const onDeleteRecentKeyword = () => {
     deleteRecentSearchEach(text);
     setRecentUpdate(recentUpdate + 1);
