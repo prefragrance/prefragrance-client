@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import COLOR from '../../../constants/color';
+import COLOR from 'constants/color';
 
 export const KeywordList = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const KeywordItem = styled.div`
   width: 100px;
   padding: 5px 15px;
   border-radius: 5px;
-  background: ${COLOR['GREEN-300']};
+  background: ${COLOR.green[300]};
   color: white;
   font-weight: bold;
   text-align: center;

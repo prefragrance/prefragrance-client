@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import COLOR from '../../../constants/color';
+import COLOR from 'constants/color';
 import LogoSrc from '../../../assets/images/취향로고.png';
 
 const Footer = () => {
@@ -31,7 +31,7 @@ const FooterSection = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  background: ${COLOR['GREEN-400']};
+  background: ${COLOR.green[400]};
 `;
 
 const LogoDiv = styled.img.attrs({ src: `${LogoSrc}` })`
@@ -43,7 +43,7 @@ const LinkUl = styled.div`
 `;
 const Li = styled.div`
   position: relative;
-  color: ${COLOR.WHITE};
+  color: ${COLOR.white};
   padding: 0 15px;
 `;
 const SNSDiv = styled.div`
