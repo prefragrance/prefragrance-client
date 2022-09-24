@@ -36,18 +36,19 @@ const Tab = styled.li`
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 1.2rem;
-  font-weight: 700;
+  // font-size: 1.2rem;
 
   &.currentTab {
     border-bottom: 1.5px solid ${COLOR.gray[200]};
     color: ${COLOR.green[400]};
+    font-weight: 700;
   }
   &.otherTab {
     cursor: pointer;
     background-color: ${COLOR.gray[100]};
     border: none;
-    color: ${COLOR.black};
+    // font-size: 1rem;
+    color: ${COLOR.gray[200]};
   }
 `;
 

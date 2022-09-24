@@ -14,7 +14,11 @@ const KeywordBlock = ({ text, currentTab, recentUpdate, setRecentUpdate }) => {
   return (
     <Wrapper>
       <QuerySection>
-        <IoSearchCircle color={COLOR['GRAY-200']} fontSize="1.5rem" />
+        <IoSearchCircle
+          color={COLOR['GRAY-200']}
+          fontSize="1.5rem"
+          opacity="0.5"
+        />
         <span>{text}</span>
       </QuerySection>
       <DeleteBtnSection disabled={currentTab !== '최근 검색어'}>
