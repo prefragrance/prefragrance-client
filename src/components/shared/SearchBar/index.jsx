@@ -6,6 +6,8 @@ import { COLOR, PATH } from '../../../constants';
 import SearchModal from './Modal/SearchModal';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
+import CategoryModal from './Modal/CategoryModal';
+
 import { apiCall } from '../../../hook/useApiCall';
 
 const SearchBarInput = () => {
@@ -48,14 +50,7 @@ const SearchBarInput = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <SelectBox ref={cateInputRef}>
-        {/* pokemon api 이용을 위해 임시로 */}
-        <option value="id">id</option>
-        <option value="whole">통합검색</option>
-        <option value="name">제품명</option>
-        <option value="tag">키워드</option>
-        <option value="producer">브랜드</option>
-      </SelectBox>
+      <CategoryModal />
 
       <input
         type="text"

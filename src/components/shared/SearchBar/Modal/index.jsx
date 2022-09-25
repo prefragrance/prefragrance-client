@@ -1,2 +1,2 @@
 export * from './SearchModal';
-// export * from './CategoryModal';
+export * from './CategoryModal';
