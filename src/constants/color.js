@@ -11,6 +11,9 @@ const COLOR = {
     300: '#589573',
     400: '#1B5434',
   },
+  red: {
+    100: '#c0392b',
+  },
 };
 
 export default COLOR;
