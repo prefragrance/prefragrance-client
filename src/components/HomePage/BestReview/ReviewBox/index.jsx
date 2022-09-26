@@ -30,10 +30,12 @@ const ReviewSection = styled.div`
   height: 80%;
   width: 80%;
   background: ${COLOR.white};
+  margin: auto;
 `;
 
 const Img = styled.img`
   border: 1px solid ${COLOR.black};
+  width: 5rem;
 `;
 
 const InfoSection = styled.div`
