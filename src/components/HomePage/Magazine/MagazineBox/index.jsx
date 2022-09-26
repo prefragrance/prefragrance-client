@@ -1,5 +1,6 @@
 import React from 'react';
-import { MagazineBoxSection } from './styled';
+import styled from 'styled-components';
+import COLOR from 'constants/color';
 
 const MagazineBox = ({ text }) => {
   return (
@@ -8,5 +9,18 @@ const MagazineBox = ({ text }) => {
     </MagazineBoxSection>
   );
 };
+
+const MagazineBoxSection = styled.div`
+  width: 300px;
+  height: 170px;
+  background-color: ${COLOR.green[400]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  & > span {
+    color: ${COLOR.white};
+  }
+`;
 
 export default MagazineBox;
