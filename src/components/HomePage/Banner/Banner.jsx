@@ -16,7 +16,8 @@ const Banner = () => {
 
 const BannerSection = styled.div`
   background: ${COLOR.green[400]};
-  min-width: 100%;
+  width: 100%;
+  min-width: 1200px;
   height: 400px;
   display: flex;
   justify-content: center;
