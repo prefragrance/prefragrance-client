@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import COLOR from 'constants/color';
 
-import LogoSrc from '../../../assets/images/취향로고.png';
-import SearchBar from '../../shared/SearchBar';
+import LogoSrc from 'assets/images/취향로고.png';
+import SearchBar from 'shared/SearchBar';
 
 const Banner = () => {
   return (
