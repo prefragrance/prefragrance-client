@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLOR from 'constants/color';
 
 const MagazineBox = ({ text }) => {
@@ -9,6 +9,10 @@ const MagazineBox = ({ text }) => {
     </MagazineBoxSection>
   );
 };
+
+const boxHover = keyframes`
+  0% {font-size: 1rem;} 100% {font-size: 1.1rem;}
+`;
 
 const MagazineBoxSection = styled.div`
   width: 300px;
@@ -20,6 +24,9 @@ const MagazineBoxSection = styled.div`
   cursor: pointer;
   & > span {
     color: ${COLOR.white};
+  }
+  &:hover {
+    animation: ${boxHover} 0.05s forwards ease-in;
   }
 `;
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import MagazineBox from './MagazineBox';
 import styled from 'styled-components';
+import COLOR from 'constants/color';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 // text가 12개씩 들어온다 가정
 const text = [
@@ -27,7 +29,7 @@ const Magazine = () => {
   return (
     <MagazineSection>
       <Button onClick={() => setNowPage(nowPage - 1)} disabled={nowPage === 1}>
-        ＜
+        <MdKeyboardArrowLeft />
       </Button>
       <BoxSection>
         {text
@@ -39,11 +41,11 @@ const Magazine = () => {
 
       <RadioSection>
         {pages.map(idx => (
-          <input
+          <RadioBtn
             key={idx + 1}
             type="radio"
             onClick={() => setNowPage(idx + 1)}
-            style={{ color: idx + 1 === nowPage && '#9e9e9e' }}
+            nowPage={nowPage === idx + 1}
           />
         ))}
       </RadioSection>
@@ -52,7 +54,7 @@ const Magazine = () => {
         onClick={() => setNowPage(nowPage + 1)}
         disabled={nowPage === pages.length}
       >
-        ＞
+        <MdKeyboardArrowRight />
       </Button>
     </MagazineSection>
   );
@@ -69,7 +71,7 @@ const MagazineSection = styled.div`
 `;
 
 const BoxSection = styled.div`
-  height: 500px;
+  height: 450px;
   width: 90%;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
@@ -84,24 +86,30 @@ const Button = styled.button`
   align-items: center;
   background-color: transparent;
   font-size: 3rem;
-  color: #bebebe;
+  color: ${COLOR.gray[200]};
   &:first-child {
     left: 1rem;
   }
   &:last-child {
     right: 1rem;
   }
-  cursor: ${props => props.disabled || 'pointer'};
+  ${props => props.disabled && 'display: none'};
 `;
 
 const RadioSection = styled.div`
   display: flex;
   flex-direction: row;
-  & > input {
-    background: #e0e0e0;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+  gap: 0.5rem;
+`;
+
+const RadioBtn = styled.div`
+width: 15px;
+height: 15px;
+border-radius: 50%;
+${props =>
+  props.nowPage
+    ? `background-color: ${COLOR.gray[200]}`
+    : 'background-color: #e0e0e0'};
   }
 `;
 
