@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import COLOR from '../../../../constants/color';
+import COLOR from 'constants/color';
 import DefaultImg from '../../../../assets/images/취향로고.png';
 
 export const ReviewSection = styled.div`
@@ -9,11 +9,11 @@ export const ReviewSection = styled.div`
   align-items: center;
   height: 80%;
   width: 80%;
-  background: ${COLOR.WHITE};
+  background: ${COLOR.white};
 `;
 
 export const Img = styled.img`
-  border: 1px solid ${COLOR.BLACK};
+  border: 1px solid ${COLOR.black};
 `;
 
 export const InfoSection = styled.div`
