@@ -20,33 +20,37 @@ const KeywordList = ({ currentTab, recentUpdate, setRecentUpdate }) => {
   }, [currentTab, recentUpdate]);
 
   // 검색어 가져오기
-  const getSearchKeyword = currentTab => {
+  const getSearchKeyword = async currentTab => {
     switch (currentTab) {
       // 추천 검색어 가져오기
       case '추천 검색어':
-        const recommendList = apiCall({
-          service: 'search-tab',
-          method: 'get',
-          url: 'recommend',
-          data: null,
-        });
-        recommendList.then(res => {
-          // console.log(res);
+        try {
+          const response = await apiCall({
+            service: 'search-tab',
+            method: 'get',
+            url: 'recommend',
+            data: null,
+          });
+          console.log(response.data);
           setSearchKeywordList([]);
-        });
+        } catch (error) {
+          console.log(error);
+        }
         break;
       // 인기 검색어 가져오기
       case '인기 검색어':
-        const popularList = apiCall({
-          service: 'search-tab',
-          method: 'get',
-          url: 'popular',
-          data: null,
-        });
-        popularList.then(res => {
-          // console.log(res);
+        try {
+          const response = await apiCall({
+            service: 'search-tab',
+            method: 'get',
+            url: 'popular',
+            data: null,
+          });
+          console.log(response.data);
           setSearchKeywordList([]);
-        });
+        } catch (error) {
+          console.log(error);
+        }
         break;
       // 최근 검색어 가져오기
       default:
@@ -65,7 +69,7 @@ const KeywordList = ({ currentTab, recentUpdate, setRecentUpdate }) => {
 
   return (
     <Wrapper>
-      {searchKeywordList.length ? (
+      {searchKeywordList.length > 0 ? (
         searchKeywordList.map(keyword => (
           <KeywordBlock
             key={keyword}
