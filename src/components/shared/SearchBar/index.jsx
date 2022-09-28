@@ -3,19 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import COLOR from 'constants/color';
 
-<<<<<<< HEAD
-import SearchModal from './Modal/SearchModal';
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-
-import CategoryModal from './Modal/CategoryModal';
-
-import { apiCall } from '../../../hook/useApiCall';
-=======
 import SearchModal from './SearchModal';
 import { apiCall } from 'hook/useApiCall';
 import { updateRecentSearch } from 'hook/useLocal';
 import { isTF } from 'hook/useCommon';
->>>>>>> facc601aadbe3cc97a78fc3abed964746a79b6c9
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -95,10 +86,6 @@ const SearchBarInput = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <Form onSubmit={handleSubmit}>
-      <CategoryModal />
-=======
     <Form onSubmit={handleSubmit} ref={formRef}>
       <SelectBox ref={cateInputRef}>
         <option value="whole">통합검색</option>
@@ -106,7 +93,6 @@ const SearchBarInput = () => {
         <option value="tag">키워드</option>
         <option value="producer">브랜드</option>
       </SelectBox>
->>>>>>> facc601aadbe3cc97a78fc3abed964746a79b6c9
 
       <input
         type="text"
