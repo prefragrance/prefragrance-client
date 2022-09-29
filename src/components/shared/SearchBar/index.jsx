@@ -7,6 +7,7 @@ import SearchModal from './SearchModal';
 import { apiCall } from 'hook/useApiCall';
 import { updateRecentSearch } from 'hook/useLocal';
 import { isTF } from 'hook/useCommon';
+import CategoryModal from './Modal/CategoryModal/index';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -87,13 +88,7 @@ const SearchBarInput = () => {
 
   return (
     <Form onSubmit={handleSubmit} ref={formRef}>
-      <SelectBox ref={cateInputRef}>
-        <option value="whole">통합검색</option>
-        <option value="name">제품명</option>
-        <option value="tag">키워드</option>
-        <option value="producer">브랜드</option>
-      </SelectBox>
-
+      <CategoryModal />
       <input
         type="text"
         ref={searchInputRef}
