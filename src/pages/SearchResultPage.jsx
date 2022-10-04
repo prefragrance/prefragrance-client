@@ -41,7 +41,7 @@ const SearchResultPage = () => {
   return (
     <>
       <Categories currentCate={currentCate} setCurrentCate={setCurrentCate} />
-      <SelectTab searchResultCount={100} />
+      <SelectTab searchResultCount={searchResultData.length} />
       <SearchResultList searchResultData={searchResultData} />
     </>
   );
