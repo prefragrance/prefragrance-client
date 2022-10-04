@@ -7,12 +7,7 @@ import { deleteRecentSearchAll } from 'hook/useLocal';
 
 const categories = ['추천 검색어', '인기 검색어', '최근 검색어'];
 
-const SearchModal = ({
-  toggleSearchModalOpen,
-  searchModalOpen,
-  recentUpdate,
-  setRecentUpdate,
-}) => {
+const SearchModal = ({ recentUpdate, setRecentUpdate }) => {
   const [currentTab, setCurrentTab] = useState('추천 검색어');
 
   const handleDeleteRecentSearchAll = () => {
@@ -22,10 +17,7 @@ const SearchModal = ({
   };
 
   return (
-    <ModalSection
-      tabIndex={0}
-      onBlur={() => toggleSearchModalOpen(searchModalOpen)}
-    >
+    <ModalSection>
       <SearchCategoryTab
         categories={categories}
         currentTab={currentTab}
