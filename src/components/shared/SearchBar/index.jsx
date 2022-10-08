@@ -7,13 +7,13 @@ import SearchModal from './SearchModal';
 import { apiCall } from 'hook/useApiCall';
 import { updateRecentSearch } from 'hook/useLocal';
 import { isTF } from 'hook/useCommon';
-import CategoryModal from './Modal/CategoryModal/index';
+import SearchCategoryDropdown from './SearchCategoryDropdown';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   // 최근 검색어 rendering trigger용, 검색할 때마다 recentUpdate + 1
   const [recentUpdate, setRecentUpdate] = useState(0);
-  const cateInputRef = useRef();
+  const categoryRef = useRef();
   const searchInputRef = useRef();
   const formRef = useRef();
   const navigate = useNavigate();
@@ -42,8 +42,9 @@ const SearchBarInput = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const cateInput = cateInputRef.current.value;
+    const searchCategory = categoryRef.current.value;
     const searchInput = searchInputRef.current.value;
+    let category;
     // search input validation
     if (searchInput.trim().length === 0) {
       alert('검색어를 입력해주세요.');
@@ -54,11 +55,27 @@ const SearchBarInput = () => {
       updateRecentSearch(searchInput);
       setRecentUpdate(recentUpdate + 1);
     }
+
+    switch (searchCategory) {
+      case '통합검색':
+        category = 'whole';
+        break;
+      case '제품명':
+        category = 'name';
+        break;
+      case '브랜드':
+        category = 'producer';
+        break;
+      default:
+        category = 'keyword';
+        break;
+    }
+
     // 검색 api call
     const searchResult = apiCall({
       service: 'search-input',
       method: 'get',
-      data: { category: cateInput, searchInput: searchInput },
+      data: { category: category, searchInput: searchInput },
     });
     searchResult.then(res => {
       console.log(res);
@@ -72,7 +89,6 @@ const SearchBarInput = () => {
       // }
     });
     // set search input ""
-    cateInputRef.current.value = 'whole';
     searchInputRef.current.value = '';
   };
 
@@ -88,7 +104,7 @@ const SearchBarInput = () => {
 
   return (
     <Form onSubmit={handleSubmit} ref={formRef}>
-      <CategoryModal />
+      <SearchCategoryDropdown categoryRef={categoryRef} />
       <input
         type="text"
         ref={searchInputRef}
