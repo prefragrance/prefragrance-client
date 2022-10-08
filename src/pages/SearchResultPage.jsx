@@ -3,7 +3,7 @@ import {
   Categories,
   SelectTab,
   SearchResultList,
-} from 'components/SearchResultPage';
+} from '../components/SearchResultPage';
 
 const searchResultData = [
   {
