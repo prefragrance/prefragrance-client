@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import COLOR from 'constants/color';
-import LogoSrc from '../../../assets/images/취향로고.png';
+import { COLOR } from 'constants';
+import LogoSrc from 'assets/images/취향로고.png';
 
 const Footer = () => {
   return (

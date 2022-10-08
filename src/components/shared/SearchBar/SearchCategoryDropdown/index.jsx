@@ -1,39 +1,35 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { useEffect, useState, useRef } from 'react';
-import { COLOR } from '../../../../../constants';
-import './style.css';
+import { useEffect, useState } from 'react';
+import { COLOR } from 'constants';
 
-const CategoryModal = () => {
-  const useDetectClose = initialState => {
-    const [isOpen, setIsOpen] = useState(initialState);
-    const ref = useRef(null);
+const SearchCategoryDropdown = React.forwardRef(({ categoryRef }, ref) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [tabText, setTabText] = useState('통합검색');
 
-    const removeHandler = () => {
-      setIsOpen(!isOpen);
-    };
-
-    useEffect(() => {
-      const onClick = e => {
-        if (ref.current !== null && !ref.current.contains(e.target)) {
-          setIsOpen(!isOpen);
-        }
-      };
-
-      if (isOpen) {
-        window.addEventListener('click', onClick);
-      }
-
-      return () => {
-        window.removeEventListener('click', onClick);
-      };
-    }, [isOpen]);
-
-    return [isOpen, ref, removeHandler];
+  const removeHandler = () => {
+    setIsOpen(!isOpen);
   };
 
-  const [tabIsOpen, tabRef, tabHandler] = useDetectClose(false);
-  const [tabText, setTabText] = useState('통합검색');
+  useEffect(() => {
+    const onClick = e => {
+      if (
+        categoryRef.current !== null &&
+        !categoryRef.current.contains(e.target)
+      ) {
+        setIsOpen(!isOpen);
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('click', onClick);
+    }
+
+    return () => {
+      window.removeEventListener('click', onClick);
+    };
+  }, [isOpen]);
+
   const tabSet1 = () => {
     setTabText('통합검색');
   };
@@ -49,10 +45,10 @@ const CategoryModal = () => {
   return (
     <Wrapper>
       <DropdownContainer>
-        <DropdownButton onClick={tabHandler} ref={tabRef}>
+        <DropdownButton onClick={removeHandler} ref={categoryRef}>
           {tabText}
         </DropdownButton>
-        <Menu isDropped={tabIsOpen}>
+        <Menu isDropped={isOpen}>
           <Ul>
             <Li>
               <LinkWrapper onClick={tabSet1}>통합검색</LinkWrapper>
@@ -71,9 +67,7 @@ const CategoryModal = () => {
       </DropdownContainer>
     </Wrapper>
   );
-};
-
-export default CategoryModal;
+});
 
 const Wrapper = styled.div`
   margin: 100px auto;
@@ -159,3 +153,5 @@ const LinkWrapper = styled.a`
   text-decoration: none;
   color: ${COLOR.BLACK};
 `;
+
+export default SearchCategoryDropdown;
