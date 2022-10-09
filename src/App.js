@@ -39,6 +39,7 @@ function App() {
 
 const OutletWrapper = styled.div`
   width: 1200px;
+  min-height: calc(100vh - 80px - 150px);
   margin: 0 auto;
   margin-top: 80px;
 `;
