@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import GlobalStyle from './GlobalStyle';
-import Nav from './components/shared/Nav';
-import Footer from './components/shared/Footer';
+import Nav from './components/shared/layout/Nav';
+import Footer from './components/shared/layout/Footer';
 
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
