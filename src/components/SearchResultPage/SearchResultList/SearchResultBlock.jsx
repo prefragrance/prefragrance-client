@@ -71,7 +71,7 @@ const ProductRate = styled.span`
   align-items: center;
 
   gap: 0.2rem;
-  color: ${COLOR.red[100]};
+  color: ${COLOR.keyword.red};
   font-size: 1rem;
   padding-left: 0.4rem;
 `;
