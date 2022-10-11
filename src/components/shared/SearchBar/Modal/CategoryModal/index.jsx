@@ -2,7 +2,6 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { useEffect, useState, useRef } from 'react';
 import { COLOR } from '../../../../../constants';
-import './style.css';
 
 const CategoryModal = () => {
   const useDetectClose = initialState => {
