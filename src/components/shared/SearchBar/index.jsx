@@ -7,13 +7,14 @@ import SearchModal from './SearchModal';
 import { apiCall } from 'hook/useApiCall';
 import { updateRecentSearch } from 'hook/useLocal';
 import { isTF } from 'hook/useCommon';
-import CategoryModal from './Modal/CategoryModal/index';
+import { useClickOutside } from 'hook/useClickOutside';
+import SearchCategoryDropdown from './SearchCategoryDropdown';
 
 const SearchBarInput = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   // 최근 검색어 rendering trigger용, 검색할 때마다 recentUpdate + 1
   const [recentUpdate, setRecentUpdate] = useState(0);
-  const cateInputRef = useRef();
+  const categoryRef = useRef();
   const searchInputRef = useRef();
   const formRef = useRef();
   const navigate = useNavigate();
@@ -22,28 +23,17 @@ const SearchBarInput = () => {
     setSearchModalOpen(prev => !prev);
   };
 
-  useEffect(() => {
-    // 검색창 내외부 감지 함수
-    // 여기서 formRef가 아닌 document에 이벤트리스너를 달아준 것은 외부 영역이 form의 여집합이기 때문
-    document.addEventListener('mousedown', clickSearchbarOutside);
-    return () => {
-      // mousedown 이벤트리스너를 제거해줌으로서 메모리 누수 차단
-      document.removeEventListener('mousedown', clickSearchbarOutside);
-    };
-  }, [searchModalOpen]); // searchModalOpen state를 추적해서 최신 값에 맞게 clickSearchbarOutside가 실행되게끔 함
-
-  const clickSearchbarOutside = event => {
-    // 모달 창이 열려있는 상태(searchModalOpen)
-    // 그리고 이벤트 발생 지점이 form의 요소가 아닐 때만 모달을 꺼주도록 함
-    if (searchModalOpen && !formRef.current.contains(event.target)) {
-      toggleSearchModal();
-    }
-  };
+  useClickOutside({
+    isModalOpen: searchModalOpen,
+    toggleModalState: toggleSearchModal,
+    formRef,
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
-    const cateInput = cateInputRef.current.value;
+    const searchCategory = categoryRef.current.value;
     const searchInput = searchInputRef.current.value;
+    let category;
     // search input validation
     if (searchInput.trim().length === 0) {
       alert('검색어를 입력해주세요.');
@@ -54,11 +44,27 @@ const SearchBarInput = () => {
       updateRecentSearch(searchInput);
       setRecentUpdate(recentUpdate + 1);
     }
+
+    switch (searchCategory) {
+      case '통합검색':
+        category = 'whole';
+        break;
+      case '제품명':
+        category = 'name';
+        break;
+      case '브랜드':
+        category = 'producer';
+        break;
+      default:
+        category = 'keyword';
+        break;
+    }
+
     // 검색 api call
     const searchResult = apiCall({
       service: 'search-input',
       method: 'get',
-      data: { category: cateInput, searchInput: searchInput },
+      data: { category: category, searchInput: searchInput },
     });
     searchResult.then(res => {
       console.log(res);
@@ -72,7 +78,6 @@ const SearchBarInput = () => {
       // }
     });
     // set search input ""
-    cateInputRef.current.value = 'whole';
     searchInputRef.current.value = '';
   };
 
@@ -88,7 +93,7 @@ const SearchBarInput = () => {
 
   return (
     <Form onSubmit={handleSubmit} ref={formRef}>
-      <CategoryModal />
+      <SearchCategoryDropdown categoryRef={categoryRef} />
       <input
         type="text"
         ref={searchInputRef}

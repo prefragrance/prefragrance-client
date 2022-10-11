@@ -31,7 +31,6 @@ const KeywordList = ({ currentTab, recentUpdate, setRecentUpdate }) => {
             url: 'recommend',
             data: null,
           });
-          console.log(response.data);
           setSearchKeywordList([]);
         } catch (error) {
           console.log(error);
@@ -46,7 +45,6 @@ const KeywordList = ({ currentTab, recentUpdate, setRecentUpdate }) => {
             url: 'popular',
             data: null,
           });
-          console.log(response.data);
           setSearchKeywordList([]);
         } catch (error) {
           console.log(error);

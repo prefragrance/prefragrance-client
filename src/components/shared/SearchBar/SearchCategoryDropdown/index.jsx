@@ -1,38 +1,41 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { useEffect, useState, useRef } from 'react';
-import { COLOR } from '../../../../../constants';
+import { useEffect, useState } from 'react';
+import { COLOR } from 'constants';
 
-const CategoryModal = () => {
-  const useDetectClose = initialState => {
-    const [isOpen, setIsOpen] = useState(initialState);
-    const ref = useRef(null);
-
-    const removeHandler = () => {
-      setIsOpen(!isOpen);
-    };
-
-    useEffect(() => {
-      const onClick = e => {
-        if (ref.current !== null && !ref.current.contains(e.target)) {
-          setIsOpen(!isOpen);
-        }
-      };
-
-      if (isOpen) {
-        window.addEventListener('click', onClick);
-      }
-
-      return () => {
-        window.removeEventListener('click', onClick);
-      };
-    }, [isOpen]);
-
-    return [isOpen, ref, removeHandler];
+const SearchCategoryDropdown = React.forwardRef(({ categoryRef }, ref) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [tabText, setTabText] = useState('통합검색');
+  const hoveredTab = e => {
+    e.target.style.color = COLOR.green[300];
+  };
+  const unHoveredTab = e => {
+    e.target.style.color = COLOR.black;
   };
 
-  const [tabIsOpen, tabRef, tabHandler] = useDetectClose(false);
-  const [tabText, setTabText] = useState('통합검색');
+  const removeHandler = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const onClick = e => {
+      if (
+        categoryRef.current !== null &&
+        !categoryRef.current.contains(e.target)
+      ) {
+        setIsOpen(!isOpen);
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('click', onClick);
+    }
+
+    return () => {
+      window.removeEventListener('click', onClick);
+    };
+  }, [isOpen]);
+
   const tabSet1 = () => {
     setTabText('통합검색');
   };
@@ -48,21 +51,21 @@ const CategoryModal = () => {
   return (
     <Wrapper>
       <DropdownContainer>
-        <DropdownButton onClick={tabHandler} ref={tabRef}>
+        <DropdownButton onClick={removeHandler} ref={categoryRef}>
           {tabText}
         </DropdownButton>
-        <Menu isDropped={tabIsOpen}>
+        <Menu isDropped={isOpen}>
           <Ul>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet1}>통합검색</LinkWrapper>
             </Li>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet2}>제품명</LinkWrapper>
             </Li>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet3}>브랜드</LinkWrapper>
             </Li>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet4}>키워드</LinkWrapper>
             </Li>
           </Ul>
@@ -70,9 +73,7 @@ const CategoryModal = () => {
       </DropdownContainer>
     </Wrapper>
   );
-};
-
-export default CategoryModal;
+});
 
 const Wrapper = styled.div`
   margin: 100px auto;
@@ -97,14 +98,14 @@ const DropdownButton = styled.div`
 `;
 
 const Menu = styled.div`
-  background-color: ${COLOR.gray[100]};
+  background: ${COLOR.gray[100]};
   position: absolute;
-  top: 33px;
+  top: 35px;
   left: 50%;
   width: 100px;
   text-align: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: 0.4rem;
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, -20px);
@@ -135,11 +136,11 @@ const Menu = styled.div`
 
 const Ul = styled.ul`
   & > li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   & > li:first-of-type {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   list-style-type: none;
@@ -158,3 +159,5 @@ const LinkWrapper = styled.a`
   text-decoration: none;
   color: ${COLOR.BLACK};
 `;
+
+export default SearchCategoryDropdown;

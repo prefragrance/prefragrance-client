@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 import GlobalStyle from './GlobalStyle';
-import Nav from './components/shared/Nav';
-import Footer from './components/shared/Footer';
+import Nav from './components/shared/layout/Nav';
+import Footer from './components/shared/layout/Footer';
 
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
@@ -39,6 +39,7 @@ function App() {
 
 const OutletWrapper = styled.div`
   width: 1200px;
+  min-height: calc(100vh - 80px - 150px);
   margin: 0 auto;
   margin-top: 80px;
 `;
