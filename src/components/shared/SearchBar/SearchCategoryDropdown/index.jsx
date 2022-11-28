@@ -6,6 +6,12 @@ import { COLOR } from 'constants';
 const SearchCategoryDropdown = React.forwardRef(({ categoryRef }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tabText, setTabText] = useState('통합검색');
+  const hoveredTab = e => {
+    e.target.style.color = COLOR.green[300];
+  };
+  const unHoveredTab = e => {
+    e.target.style.color = COLOR.black;
+  };
 
   const removeHandler = () => {
     setIsOpen(!isOpen);
@@ -50,16 +56,16 @@ const SearchCategoryDropdown = React.forwardRef(({ categoryRef }, ref) => {
         </DropdownButton>
         <Menu isDropped={isOpen}>
           <Ul>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet1}>통합검색</LinkWrapper>
             </Li>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet2}>제품명</LinkWrapper>
             </Li>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet3}>브랜드</LinkWrapper>
             </Li>
-            <Li>
+            <Li onMouseEnter={hoveredTab} onMouseLeave={unHoveredTab}>
               <LinkWrapper onClick={tabSet4}>키워드</LinkWrapper>
             </Li>
           </Ul>
@@ -92,14 +98,14 @@ const DropdownButton = styled.div`
 `;
 
 const Menu = styled.div`
-  background-color: ${COLOR.gray[100]};
+  background: ${COLOR.gray[100]};
   position: absolute;
-  top: 33px;
+  top: 35px;
   left: 50%;
   width: 100px;
   text-align: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: 0.4rem;
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, -20px);
@@ -130,11 +136,11 @@ const Menu = styled.div`
 
 const Ul = styled.ul`
   & > li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   & > li:first-of-type {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   list-style-type: none;
